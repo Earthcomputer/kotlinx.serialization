@@ -52,7 +52,7 @@ import kotlin.native.concurrent.*
  */
 @OptIn(ExperimentalSerializationApi::class)
 public sealed class Json(
-    @ExperimentalSerializationApi public val configuration: JsonConfiguration,
+    public val configuration: JsonConfiguration,
     override val serializersModule: SerializersModule
 ) : StringFormat {
 
@@ -180,6 +180,7 @@ public class JsonBuilder internal constructor(json: Json) {
      *
      * `true` by default.
      */
+    @ExperimentalSerializationApi
     public var explicitNulls: Boolean = json.configuration.explicitNulls
 
     /**
